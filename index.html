@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Мехрубон & Исмат · Приглашение на свадьбу</title>
+  <meta name="description" content="Приглашаем вас разделить с нами самый счастливый день — свадьбу Мехрубон и Исмата." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Floating petals / particles -->
+  <div class="particles" aria-hidden="true"></div>
+
+  <!-- ===== HERO ===== -->
+  <header class="hero" id="top">
+    <nav class="nav">
+      <span class="nav__mono">М <span class="amp">&amp;</span> И</span>
+      <ul class="nav__links">
+        <li><a href="#story">История</a></li>
+        <li><a href="#details">Детали</a></li>
+        <li><a href="#gallery">Галерея</a></li>
+        <li><a href="#rsvp">RSVP</a></li>
+      </ul>
+    </nav>
+
+    <div class="hero__inner">
+      <p class="hero__eyebrow reveal">Мы женимся</p>
+
+      <figure class="couple" tabindex="0" aria-label="Мехрубон и Исмат">
+        <img class="couple__img couple__img--1" src="assets/couple_1.png" alt="Мехрубон и Исмат" />
+        <img class="couple__img couple__img--2" src="assets/couple_2.png" alt="Мехрубон и Исмат" />
+        <span class="couple__ring"></span>
+      </figure>
+
+      <h1 class="hero__names reveal">
+        <span>Мехрубон</span>
+        <span class="hero__amp">&amp;</span>
+        <span>Исмат</span>
+      </h1>
+
+      <p class="hero__date reveal" data-wedding-date>· · ·</p>
+      <a href="#rsvp" class="btn reveal">Подтвердить участие</a>
+    </div>
+
+    <a class="scroll-cue" href="#story" aria-label="Прокрутить вниз">
+      <span></span>
+    </a>
+  </header>
+
+  <!-- ===== COUNTDOWN ===== -->
+  <section class="countdown" aria-label="Обратный отсчёт">
+    <div class="countdown__grid">
+      <div class="cd"><span class="cd__num" data-days>0</span><span class="cd__label">дней</span></div>
+      <div class="cd"><span class="cd__num" data-hours>0</span><span class="cd__label">часов</span></div>
+      <div class="cd"><span class="cd__num" data-mins>0</span><span class="cd__label">минут</span></div>
+      <div class="cd"><span class="cd__num" data-secs>0</span><span class="cd__label">секунд</span></div>
+    </div>
+  </section>
+
+  <!-- ===== STORY ===== -->
+  <section class="story" id="story">
+    <p class="section__kicker reveal">Наша история</p>
+    <h2 class="section__title reveal">Две половинки, один level</h2>
+    <p class="story__lead reveal">
+      Всё началось с общего интереса, любимых игр и бесконечных разговоров до утра.
+      Сегодня мы держимся за руки и точно знаем — этот co-op на всю жизнь.
+    </p>
+    <blockquote class="quote reveal">
+      «I wanna hold your hand and never&nbsp;Lego.»
+    </blockquote>
+  </section>
+
+  <!-- ===== DETAILS ===== -->
+  <section class="details" id="details">
+    <p class="section__kicker reveal">Детали торжества</p>
+    <h2 class="section__title reveal">Когда и где</h2>
+
+    <div class="details__grid">
+      <article class="card reveal">
+        <span class="card__icon">❖</span>
+        <h3>Дата</h3>
+        <p data-wedding-date-long>—</p>
+        <p class="card__sub">Сбор гостей за 30 минут до начала</p>
+      </article>
+
+      <article class="card reveal">
+        <span class="card__icon">⌖</span>
+        <h3>Место</h3>
+        <p>Банкетный зал «—»</p>
+        <p class="card__sub">Адрес уточняется</p>
+      </article>
+
+      <article class="card reveal">
+        <span class="card__icon">♛</span>
+        <h3>Дресс-код</h3>
+        <p>Элегантно, в чёрных тонах</p>
+        <p class="card__sub">Будьте красивы вместе с нами</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ===== GALLERY ===== -->
+  <section class="gallery" id="gallery">
+    <p class="section__kicker reveal">Моменты</p>
+    <h2 class="section__title reveal">Наша галерея</h2>
+
+    <div class="gallery__grid">
+      <figure class="gallery__item reveal"><img src="assets/photo_2026-06-26_01-52-50.jpg" alt="Мехрубон и Исмат" loading="lazy" /></figure>
+      <figure class="gallery__item reveal"><img src="assets/photo_2026-06-26_01-52-24.jpg" alt="Момент" loading="lazy" /></figure>
+      <figure class="gallery__item reveal"><img src="assets/photo_2026-06-26_01-52-31.jpg" alt="Момент" loading="lazy" /></figure>
+      <figure class="gallery__item reveal"><img src="assets/photo_2026-06-26_01-52-45.jpg" alt="I wanna hold your hand and never Lego" loading="lazy" /></figure>
+      <figure class="gallery__item reveal"><img src="assets/photo_2026-06-26_01-53-12.jpg" alt="Вместе за игрой" loading="lazy" /></figure>
+      <figure class="gallery__item reveal"><img src="assets/photo_2026-06-26_01-53-03.jpg" alt="В кино" loading="lazy" /></figure>
+      <figure class="gallery__item reveal"><img src="assets/photo_2026-06-26_01-52-57.jpg" alt="Прогулка" loading="lazy" /></figure>
+    </div>
+  </section>
+
+  <!-- ===== RSVP ===== -->
+  <section class="rsvp" id="rsvp">
+    <p class="section__kicker reveal">Будете с нами?</p>
+    <h2 class="section__title reveal">Подтвердите участие</h2>
+    <p class="rsvp__lead reveal">Нам важно знать, что вы разделите с нами этот день.</p>
+
+    <form class="rsvp__form reveal" id="rsvpForm" novalidate>
+      <div class="field">
+        <input type="text" id="name" name="name" required placeholder=" " />
+        <label for="name">Ваше имя</label>
+      </div>
+      <div class="field">
+        <select id="attend" name="attend" required>
+          <option value="" disabled selected hidden></option>
+          <option value="Буду">С радостью буду!</option>
+          <option value="Не смогу">К сожалению, не смогу</option>
+        </select>
+        <label for="attend">Придёте?</label>
+      </div>
+      <div class="field field--wide">
+        <input type="number" id="guests" name="guests" min="1" max="10" placeholder=" " />
+        <label for="guests">Сколько вас будет</label>
+      </div>
+      <div class="field field--wide">
+        <textarea id="wish" name="wish" rows="3" placeholder=" "></textarea>
+        <label for="wish">Пожелания паре</label>
+      </div>
+      <button type="submit" class="btn btn--full">Отправить ответ</button>
+      <p class="rsvp__hint" id="rsvpHint" role="status"></p>
+    </form>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <p class="footer__names">Мехрубон <span class="amp">&amp;</span> Исмат</p>
+    <p class="footer__date" data-wedding-date>· · ·</p>
+    <p class="footer__thanks">С любовью ждём вас</p>
+
+    <div class="footer__stewie">
+      <img src="assets/Stewie_Griffin.png" alt="Stewie Griffin" />
+      <p>Victory shall be mine.</p>
+    </div>
+
+    <a href="#top" class="footer__top">↑ наверх</a>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
