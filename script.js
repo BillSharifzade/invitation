@@ -3,7 +3,16 @@
    ============================================================ */
 
 /* >>> Дата свадьбы — отредактируйте при необходимости (год, месяц[0-11], день, час, минута) <<< */
-const WEDDING_DATE = new Date(2026, 8, 12, 16, 0); // 12 сентября 2026, 16:00
+const WEDDING_DATE = new Date(2026, 6, 5, 18, 0); // 5 июля 2026, 18:00
+
+/* >>> Telegram (режим без бэкенда — отправка прямо из браузера) <<<
+   ВНИМАНИЕ: токен виден всем в исходниках страницы. Это осознанный выбор для
+   простого приглашения. Если токен начнут использовать не по делу — перевыпустите
+   его в @BotFather. Пусто = ответы только сохраняются локально (в браузере). */
+const TELEGRAM = {
+  token: "7884567380:AAFsuceEhSxdDvXg1FtvXvfOALdJCvnMFAM",
+  chatIds: ["971104199", "631886740"],
+};
 
 /* ---------- Форматирование даты ---------- */
 const MONTHS = ["января","февраля","марта","апреля","мая","июня",
@@ -75,26 +84,69 @@ if (particleHost && !window.matchMedia("(prefers-reduced-motion: reduce)").match
 const form = document.getElementById("rsvpForm");
 const hint = document.getElementById("rsvpHint");
 if (form) {
-  form.addEventListener("submit", (e) => {
+  const submitBtn = form.querySelector('button[type="submit"]');
+
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
     const name = form.name.value.trim();
     const attend = form.attend.value;
+    const wish = form.wish.value.trim();
     if (!name || !attend) {
       hint.textContent = "Пожалуйста, заполните имя и выберите ответ.";
       return;
     }
-    // Сохраняем локально и показываем благодарность.
-    // Чтобы получать ответы на почту, замените блок ниже на отправку (mailto / Formspree / Google Forms).
+
+    const payload = { name, attend, wish, at: new Date().toISOString() };
+    const thanks = attend === "Буду"
+      ? `Спасибо, ${name}! Будем рады видеть вас ❖`
+      : `Спасибо за ответ, ${name}. Будем скучать.`;
+
+    // Локальная резервная копия в браузере.
     try {
-      const data = { name, attend, guests: form.guests.value, wish: form.wish.value, at: new Date().toISOString() };
       const all = JSON.parse(localStorage.getItem("rsvp") || "[]");
-      all.push(data);
+      all.push(payload);
       localStorage.setItem("rsvp", JSON.stringify(all));
     } catch (_) {}
 
-    hint.textContent = attend === "Буду"
-      ? `Спасибо, ${name}! Будем рады видеть вас ❖`
-      : `Спасибо за ответ, ${name}. Будем скучать.`;
-    form.reset();
+    // Если Telegram не настроен — просто благодарим.
+    if (!TELEGRAM.token || !TELEGRAM.chatIds.length) {
+      hint.textContent = thanks;
+      form.reset();
+      return;
+    }
+
+    // Отправляем ответ напрямую в Telegram (в каждый чат).
+    hint.textContent = "Отправляем…";
+    if (submitBtn) submitBtn.disabled = true;
+
+    const emoji = attend === "Буду" ? "✅" : "❌";
+    const when = new Date().toLocaleString("ru-RU", { timeZone: "Asia/Dushanbe" });
+    const text =
+      `💌 Новый ответ на приглашение\n\n` +
+      `👤 Имя: ${name}\n` +
+      `${emoji} Ответ: ${attend}\n` +
+      (wish ? `📝 Пожелание: ${wish}\n` : "") +
+      `🕒 ${when}`;
+
+    const url = `https://api.telegram.org/bot${TELEGRAM.token}/sendMessage`;
+    try {
+      const results = await Promise.allSettled(
+        TELEGRAM.chatIds.map((chat_id) =>
+          fetch(url, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ chat_id, text }),
+          }).then((r) => (r.ok ? r : Promise.reject(r)))
+        )
+      );
+      const ok = results.some((r) => r.status === "fulfilled");
+      if (!ok) throw new Error("all sends failed");
+      hint.textContent = thanks;
+      form.reset();
+    } catch (err) {
+      hint.textContent = "Не удалось отправить. Попробуйте позже или напишите нам напрямую.";
+    } finally {
+      if (submitBtn) submitBtn.disabled = false;
+    }
   });
 }

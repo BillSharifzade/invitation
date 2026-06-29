@@ -22,7 +22,6 @@
       <ul class="nav__links">
         <li><a href="#story">История</a></li>
         <li><a href="#details">Детали</a></li>
-        <li><a href="#gallery">Галерея</a></li>
         <li><a href="#rsvp">RSVP</a></li>
       </ul>
     </nav>
@@ -83,39 +82,34 @@
       <article class="card reveal">
         <span class="card__icon">❖</span>
         <h3>Дата</h3>
-        <p data-wedding-date-long>—</p>
+        <p>5 июля 2026</p>
         <p class="card__sub">Сбор гостей за 30 минут до начала</p>
+      </article>
+
+      <article class="card reveal">
+        <span class="card__icon">☾</span>
+        <h3>Время</h3>
+        <p>18:00</p>
+        <p class="card__sub">Начало торжества</p>
       </article>
 
       <article class="card reveal">
         <span class="card__icon">⌖</span>
         <h3>Место</h3>
-        <p>Банкетный зал «—»</p>
-        <p class="card__sub">Адрес уточняется</p>
-      </article>
-
-      <article class="card reveal">
-        <span class="card__icon">♛</span>
-        <h3>Дресс-код</h3>
-        <p>Элегантно, в чёрных тонах</p>
-        <p class="card__sub">Будьте красивы вместе с нами</p>
+        <p>Ресторан «Дидор»</p>
+        <p class="card__sub">ул. Рахмона Набиева 26, Душанбе</p>
       </article>
     </div>
-  </section>
 
-  <!-- ===== GALLERY ===== -->
-  <section class="gallery" id="gallery">
-    <p class="section__kicker reveal">Моменты</p>
-    <h2 class="section__title reveal">Наша галерея</h2>
-
-    <div class="gallery__grid">
-      <figure class="gallery__item reveal"><img src="assets/photo_2026-06-26_01-52-50.jpg" alt="Мехрубон и Исмат" loading="lazy" /></figure>
-      <figure class="gallery__item reveal"><img src="assets/photo_2026-06-26_01-52-24.jpg" alt="Момент" loading="lazy" /></figure>
-      <figure class="gallery__item reveal"><img src="assets/photo_2026-06-26_01-52-31.jpg" alt="Момент" loading="lazy" /></figure>
-      <figure class="gallery__item reveal"><img src="assets/photo_2026-06-26_01-52-45.jpg" alt="I wanna hold your hand and never Lego" loading="lazy" /></figure>
-      <figure class="gallery__item reveal"><img src="assets/photo_2026-06-26_01-53-12.jpg" alt="Вместе за игрой" loading="lazy" /></figure>
-      <figure class="gallery__item reveal"><img src="assets/photo_2026-06-26_01-53-03.jpg" alt="В кино" loading="lazy" /></figure>
-      <figure class="gallery__item reveal"><img src="assets/photo_2026-06-26_01-52-57.jpg" alt="Прогулка" loading="lazy" /></figure>
+    <!-- Карта -->
+    <div class="map reveal">
+      <iframe
+        title="Ресторан Дидор на карте"
+        src="https://maps.google.com/maps?q=%D0%A0%D0%B5%D1%81%D1%82%D0%BE%D1%80%D0%B0%D0%BD%20%D0%94%D0%B8%D0%B4%D0%BE%D1%80%2C%20%D1%83%D0%BB.%20%D0%A0%D0%B0%D1%85%D0%BC%D0%BE%D0%BD%D0%B0%20%D0%9D%D0%B0%D0%B1%D0%B8%D0%B5%D0%B2%D0%B0%2C%20%D0%94%D1%83%D1%88%D0%B0%D0%BD%D0%B1%D0%B5&z=16&output=embed"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        allowfullscreen></iframe>
+      <a class="map__link" href="https://maps.google.com/maps?q=%D0%A0%D0%B5%D1%81%D1%82%D0%BE%D1%80%D0%B0%D0%BD%20%D0%94%D0%B8%D0%B4%D0%BE%D1%80%2C%20%D1%83%D0%BB.%20%D0%A0%D0%B0%D1%85%D0%BC%D0%BE%D0%BD%D0%B0%20%D0%9D%D0%B0%D0%B1%D0%B8%D0%B5%D0%B2%D0%B0%2C%20%D0%94%D1%83%D1%88%D0%B0%D0%BD%D0%B1%D0%B5" target="_blank" rel="noopener">Открыть в картах →</a>
     </div>
   </section>
 
@@ -137,10 +131,6 @@
           <option value="Не смогу">К сожалению, не смогу</option>
         </select>
         <label for="attend">Придёте?</label>
-      </div>
-      <div class="field field--wide">
-        <input type="number" id="guests" name="guests" min="1" max="10" placeholder=" " />
-        <label for="guests">Сколько вас будет</label>
       </div>
       <div class="field field--wide">
         <textarea id="wish" name="wish" rows="3" placeholder=" "></textarea>
